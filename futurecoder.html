@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://futurecoder.io/ -->
+<html lang="en" class="sr js"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>futurecoder: learn python from scratch</title>
+    <link href="./futurecoder_files/css" rel="stylesheet">
+    <link rel="stylesheet" href="./futurecoder_files/style.css">
+    <link rel="stylesheet" href="./futurecoder_files/home.css">
+    <script src="./futurecoder_files/scrollreveal.min.js.download"></script>
+    <link href="./futurecoder_files/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./futurecoder_files/all.min.css">
+    <link rel="shortcut icon" type="image/png" href="https://futurecoder.io/static/logo/favicon_32px.png">
+    <meta property="og:title" content="futurecoder: Learn to code from scratch">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="100% free and interactive Python course for beginners">
+    <meta property="og:image" content="https://futurecoder.io/static/logo/bordered.png">
+
+</style><style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style><style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Book.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('chrome-extension://liecbddmkiiihnedobmlmillhodjkdmb/fonts/CircularXXWeb-Black.woff2') format('woff2');
+}</style></head>
+<body onload="AOS.init({once:true})" style="height: 100%;" cz-shortcut-listen="true" class="vsc-initialized" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+<div class="body-wrap boxed-container home-page">
+    <div style="position:fixed; z-index:0; top:0; left:0; width:100%; height:100%;">
+        <canvas id="canvas" style="width:100%; height:100%;" width="873" height="830"></canvas>
+        <script type="text/javascript">new WarpSpeed("canvas");</script>
+    </div>
+
+    
+    
+
+    
+</div><div id="scrnli_recorder_root"></div>
+
+<script src="./futurecoder_files/main.js.download"></script>
+<script src="./futurecoder_files/aos.js.download"></script>
+<script>
+    // document.onload = AOS.init();
+</script>
+<script type="text/javascript" src="./futurecoder_files/warpspeed.min.js.download"></script>
+<script>
+    var x=new WarpSpeed(
+        "canvas",{"speed":100,"targetSpeed": 1.5, "speedAdjFactor":0.04,"density":2,"shape":"square","warpEffect":true,"warpEffectLength":6,"depthFade":true,"starSize":2,"backgroundColor":"hsl(263,45%,7%)","starColor":"#eee"}
+        );
+</script>
+
+
+<iframe src="./futurecoder_files/audio-devices.html" allow="microphone" style="display: none;"></iframe><input type="file" id="" name="file" style="display: none;"><div data-v-f3fb3dc8=""><div data-v-f3fb3dc8="" class="container_selected_area" style="cursor: crosshair;"></div> <div data-v-f3fb3dc8="" class="area" style="left: 0px; top: 0px; width: 0px; height: 0px;"></div></div><script>
+		var returnedSuggestion = ''
+		let editor, doc, cursor, line, pos
+		document.addEventListener("keydown", (event) => {
+		setTimeout(()=>{
+			editor = event.target.closest('.CodeMirror');
+			doc = editor.CodeMirror.getDoc()
+			cursor = doc.getCursor()
+			line = doc.getLine(cursor.line)
+			pos = {line: cursor.line, ch: line.length}
+			if (event.key == "Enter"){
+			var query = doc.getRange({ line: Math.max(0,cursor.line-10), ch: 0 }, { line: cursor.line, ch: 0 })
+			window.postMessage({source: 'getSuggestion', payload: { data: query } } )
+			//displayGrey(query)
+			}
+			else if (event.key == "ArrowRight"){
+			acceptTab(returnedSuggestion)
+			}
+		}, 0)
+		})
+
+		function acceptTab(text){
+		if (suggestionDisplayed){
+			doc.replaceRange(text, pos)
+			suggestionDisplayed = false
+		}
+		}
+		function displayGrey(text){
+		var element = document.createElement('span')
+		element.innerText = text
+		element.style = 'color:grey'
+		var lineIndex = pos.line;
+		editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(element)
+		suggestionDisplayed = true
+		}
+		window.addEventListener('message', (event)=>{
+		if (event.source !== window ) return
+		if (event.data.source == 'return'){
+			returnedSuggestion = event.data.payload.data
+			displayGrey(event.data.payload.data)
+		}
+		})
+	</script></body><loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container><loom-container id="lo-companion-container"><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
